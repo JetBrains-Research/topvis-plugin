@@ -27,6 +27,9 @@ abstract class GenerateTopicsAction : AnAction() {
                 indicator.text = "Generating topics"
                 indicator.isIndeterminate = false
                 indicator.fraction = 0.0
+                if (Files.isRegularFile(Path.of("${project.basePath}/${TOPICS_FILENAME}"))) {
+                    File("${project.basePath}/${TOPICS_FILENAME}").delete()
+                }
                 val resource = javaClass.classLoader.getResourceAsStream("/topics.sh")
                 val file = File("tmp.sh")
                 file.createNewFile()
