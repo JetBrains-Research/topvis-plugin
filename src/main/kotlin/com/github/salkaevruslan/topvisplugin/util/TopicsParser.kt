@@ -5,6 +5,8 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Path
 import java.nio.file.Paths
 
 
@@ -23,7 +25,7 @@ class TopicsParser {
 
         fun parse(project: Project, fileName: String) {
             val path = project.basePath?.let { Paths.get(it, fileName) }?.toUri()
-            if (path != null) {
+            if (path != null  && Files.isRegularFile(Path.of(path))) {
                 projectData = Json.decodeFromString<Response>(
                     File(path).readBytes().toString(Charsets.UTF_8)
                 ).data.find { repo -> repo.path == project.name }

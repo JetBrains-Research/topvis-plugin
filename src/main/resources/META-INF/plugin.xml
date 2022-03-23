@@ -22,5 +22,17 @@
                 description="TODO">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
+        <action id="GenerateTFIDFTopics"
+                class="com.github.salkaevruslan.topvisplugin.actions.GenerateTFIDFAction"
+                text="Generate Tfidf Topics"
+                description="TODO">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="GenerateSosedTopics"
+                class="com.github.salkaevruslan.topvisplugin.actions.GenerateSosedAction"
+                text="Generate Sosed Topics"
+                description="TODO">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 </idea-plugin>
