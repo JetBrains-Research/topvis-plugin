@@ -1,7 +1,7 @@
-package com.github.salkaevruslan.topvisplugin.decorators
+package org.jetbrains.topvisplugin.decorators
 
-import com.github.salkaevruslan.topvisplugin.settings.TopvisPluginSettings
-import com.github.salkaevruslan.topvisplugin.util.TopicsParser
+import org.jetbrains.topvisplugin.settings.TopvisPluginSettings
+import org.jetbrains.topvisplugin.util.TopicsParser
 import com.intellij.ide.projectView.PresentationData
 import com.intellij.ide.projectView.ProjectViewNode
 import com.intellij.ide.projectView.ProjectViewNodeDecorator

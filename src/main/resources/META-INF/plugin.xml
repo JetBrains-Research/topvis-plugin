@@ -7,9 +7,9 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <postStartupActivity implementation="com.github.salkaevruslan.topvisplugin.activities.TopvisStartupActivity"/>
-        <projectService serviceImplementation="com.github.salkaevruslan.topvisplugin.settings.TopvisPluginSettings"/>
-        <projectViewNodeDecorator implementation="com.github.salkaevruslan.topvisplugin.decorators.TopicsDecorator"/>
+        <postStartupActivity implementation="org.jetbrains.topvisplugin.activities.TopvisStartupActivity"/>
+        <projectService serviceImplementation="org.jetbrains.topvisplugin.settings.TopvisPluginSettings"/>
+        <projectViewNodeDecorator implementation="org.jetbrains.topvisplugin.decorators.TopicsDecorator"/>
     </extensions>
 
     <applicationListeners>
@@ -17,19 +17,19 @@
 
     <actions>
         <action id="ProjectView.EnableTopics"
-                class="com.github.salkaevruslan.topvisplugin.actions.TopicsEnableAction"
+                class="org.jetbrains.topvisplugin.actions.TopicsEnableAction"
                 text="Enable Topics"
                 description="TODO">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
         <action id="GenerateTFIDFTopics"
-                class="com.github.salkaevruslan.topvisplugin.actions.GenerateTFIDFAction"
+                class="org.jetbrains.topvisplugin.actions.GenerateTFIDFAction"
                 text="Generate Tfidf Topics"
                 description="TODO">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
         <action id="GenerateSosedTopics"
-                class="com.github.salkaevruslan.topvisplugin.actions.GenerateSosedAction"
+                class="org.jetbrains.topvisplugin.actions.GenerateSosedAction"
                 text="Generate Sosed Topics"
                 description="TODO">
             <add-to-group group-id="ToolsMenu" anchor="last"/>

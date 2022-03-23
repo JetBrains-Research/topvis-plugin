@@ -1,4 +1,4 @@
-package com.github.salkaevruslan.topvisplugin.actions
+package org.jetbrains.topvisplugin.actions
 
 class GenerateSosedAction : GenerateTopicsAction() {
     override fun getMethod(): String {

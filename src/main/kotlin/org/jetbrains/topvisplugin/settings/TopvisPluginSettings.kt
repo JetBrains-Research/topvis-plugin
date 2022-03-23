@@ -1,4 +1,4 @@
-package com.github.salkaevruslan.topvisplugin.settings
+package org.jetbrains.topvisplugin.settings
 
 import com.intellij.openapi.components.*
 import com.intellij.util.xmlb.annotations.OptionTag

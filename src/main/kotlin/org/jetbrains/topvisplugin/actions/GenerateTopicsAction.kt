@@ -1,6 +1,6 @@
-package com.github.salkaevruslan.topvisplugin.actions
+package org.jetbrains.topvisplugin.actions
 
-import com.github.salkaevruslan.topvisplugin.util.TopicsParser
+import org.jetbrains.topvisplugin.util.TopicsParser
 import com.intellij.ide.projectView.ProjectView
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -27,8 +27,8 @@ abstract class GenerateTopicsAction : AnAction() {
                 indicator.text = "Generating topics"
                 indicator.isIndeterminate = false
                 indicator.fraction = 0.0
-                if (Files.isRegularFile(Path.of("${project.basePath}/${TOPICS_FILENAME}"))) {
-                    File("${project.basePath}/${TOPICS_FILENAME}").delete()
+                if (Files.isRegularFile(Path.of("${project.basePath}/$TOPICS_FILENAME"))) {
+                    File("${project.basePath}/$TOPICS_FILENAME").delete()
                 }
                 val resource = javaClass.classLoader.getResourceAsStream("/topics.sh")
                 val file = File("tmp.sh")
@@ -41,7 +41,7 @@ abstract class GenerateTopicsAction : AnAction() {
                 if (Files.isRegularFile(Path.of(TOPICS_FILENAME))) {
                     Files.move(
                         Paths.get(TOPICS_FILENAME),
-                        Paths.get("${project.basePath}/${TOPICS_FILENAME}"),
+                        Paths.get("${project.basePath}/$TOPICS_FILENAME"),
                         StandardCopyOption.REPLACE_EXISTING
                     )
                     File(TOPICS_FILENAME).delete()

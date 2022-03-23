@@ -1,4 +1,4 @@
-package com.github.salkaevruslan.topvisplugin.util
+package org.jetbrains.topvisplugin.util
 
 import com.intellij.openapi.project.Project
 import kotlinx.serialization.Serializable
