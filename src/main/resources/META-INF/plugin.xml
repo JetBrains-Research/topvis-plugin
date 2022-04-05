@@ -10,6 +10,7 @@
         <postStartupActivity implementation="org.jetbrains.topvisplugin.activities.TopvisStartupActivity"/>
         <projectService serviceImplementation="org.jetbrains.topvisplugin.settings.TopvisPluginSettings"/>
         <projectViewNodeDecorator implementation="org.jetbrains.topvisplugin.decorators.TopicsDecorator"/>
+        <searchEverywhereContributor implementation="org.jetbrains.topvisplugin.search.FileWithTopicsSearchEverywhereContributor$Factory"/>
     </extensions>
 
     <applicationListeners>
