@@ -1,6 +1,4 @@
 package org.jetbrains.topvisplugin.search
-
-import com.intellij.ide.IdeBundle
 import com.intellij.ide.actions.SearchEverywherePsiRenderer
 import com.intellij.ide.actions.searcheverywhere.FileSearchEverywhereContributor
 import com.intellij.ide.actions.searcheverywhere.SearchEverywhereContributor
@@ -27,6 +25,7 @@ import java.io.File
 import java.util.*
 import javax.swing.JList
 import javax.swing.ListCellRenderer
+import kotlin.math.max
 
 class FileWithTopicsSearchEverywhereContributor(event: AnActionEvent) : FileSearchEverywhereContributor(event) {
     private val myModelForRenderer: GotoFileModel?
@@ -57,6 +56,7 @@ class FileWithTopicsSearchEverywhereContributor(event: AnActionEvent) : FileSear
                 maxWidth: Int,
                 fm: FontMetrics
             ): String? {
+                // almost copied from original FileSearchEverywhereContributor
                 val presentablePath = extractPresentablePath(element)
                 var text =
                     ObjectUtils.chooseNotNull(presentablePath, SymbolPresentationUtil.getSymbolContainerText(element))
@@ -141,7 +141,7 @@ class FileWithTopicsSearchEverywhereContributor(event: AnActionEvent) : FileSear
                         return "$topicsString$left" + StringUtil.join(parts, separator)
                     }
                 }
-                val adjustedWidth = Math.max(adjustedText.length * maxWidth / fullWidth - 1, left.length + 3)
+                val adjustedWidth = max(adjustedText.length * maxWidth / fullWidth - 1, left.length + 3)
                 return StringUtil.trimMiddle(adjustedText, adjustedWidth)
             }
 
