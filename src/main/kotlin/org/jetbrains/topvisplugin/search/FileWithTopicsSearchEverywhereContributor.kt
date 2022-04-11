@@ -38,6 +38,16 @@ class FileWithTopicsSearchEverywhereContributor(event: AnActionEvent) : FileSear
         return "Files with topics"
     }
 
+    override fun getSortWeight(): Int {
+        /*
+        Less than weight for FileSearchEverywhereContributor
+        to show files with topics in All tab.
+        If results from different contributors are same,
+        one with the smallest weight will be taken
+         */
+        return 199
+    }
+
     override fun getElementsRenderer(): ListCellRenderer<Any> {
         return object : SearchEverywherePsiRenderer(this) {
             override fun getItemMatchers(list: JList<*>, value: Any): ItemMatchers {
