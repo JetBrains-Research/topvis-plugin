@@ -28,19 +28,21 @@ class TopicsDecorator : ProjectViewNodeDecorator {
                 val topicsInfo = projectPath?.let { virtualFile.path.removePrefix(it) }
                     ?.let { TopicsParser.getTopicsInfo(it) }
                 if (topicsInfo != null && data != null) {
-                    val text = data.presentableText
-                    val attributes = getSimpleTextAttributes(data)
-                    data.addText(PresentableNodeDescriptor.ColoredFragment(text, attributes))
-                    val location: String? = data.locationString
-                    if (!StringUtil.isEmpty(location)) {
-                        val attributesWithLocation =
-                            SimpleTextAttributes.merge(attributes, SimpleTextAttributes.GRAYED_ATTRIBUTES)
-                        data.addText(
-                            PresentableNodeDescriptor.ColoredFragment(
-                                data.locationPrefix + location + data.locationSuffix,
-                                attributesWithLocation
+                    if (data.coloredText.isEmpty()) {
+                        val text = data.presentableText
+                        val attributes = getSimpleTextAttributes(data)
+                        data.addText(PresentableNodeDescriptor.ColoredFragment(text, attributes))
+                        val location: String? = data.locationString
+                        if (!StringUtil.isEmpty(location)) {
+                            val attributesWithLocation =
+                                SimpleTextAttributes.merge(attributes, SimpleTextAttributes.GRAYED_ATTRIBUTES)
+                            data.addText(
+                                PresentableNodeDescriptor.ColoredFragment(
+                                    data.locationPrefix + location + data.locationSuffix,
+                                    attributesWithLocation
+                                )
                             )
-                        )
+                        }
                     }
                     data.addText(
                         PresentableNodeDescriptor.ColoredFragment(

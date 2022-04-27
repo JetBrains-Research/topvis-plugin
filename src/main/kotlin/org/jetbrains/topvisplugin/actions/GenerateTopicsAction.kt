@@ -45,7 +45,9 @@ abstract class GenerateTopicsAction : AnAction() {
                 log.info("Starting topics generation")
                 val scriptProcess = Runtime.getRuntime().exec("${file.absolutePath} ${getMethod()} ${project.basePath}")
                 val br = BufferedReader(InputStreamReader(scriptProcess.inputStream))
+                val er = BufferedReader(InputStreamReader(scriptProcess.errorStream))
                 var line: String?
+                while (er.readLine().also { line = it } != null) log.info(line)
                 while (br.readLine().also { line = it } != null) log.info(line)
                 scriptProcess.waitFor()
                 log.info("Topics generation finished")
