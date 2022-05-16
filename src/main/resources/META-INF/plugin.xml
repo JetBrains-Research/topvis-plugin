@@ -1,0 +1,39 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.salkaevruslan.topvisplugin</id>
+    <name>Topvisplugin</name>
+    <vendor>salkaevruslan</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="org.jetbrains.topvisplugin.activities.TopvisStartupActivity"/>
+        <projectService serviceImplementation="org.jetbrains.topvisplugin.settings.TopvisPluginSettings"/>
+        <projectViewNodeDecorator implementation="org.jetbrains.topvisplugin.decorators.TopicsDecorator"/>
+        <searchEverywhereContributor implementation="org.jetbrains.topvisplugin.search.FileWithTopicsSearchEverywhereContributor$Factory"/>
+    </extensions>
+
+    <applicationListeners>
+    </applicationListeners>
+
+    <actions>
+        <action id="ProjectView.EnableTopics"
+                class="org.jetbrains.topvisplugin.actions.TopicsEnableAction"
+                text="Enable Topics"
+                description="TODO">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="GenerateTFIDFTopics"
+                class="org.jetbrains.topvisplugin.actions.GenerateTFIDFAction"
+                text="Generate Tfidf Topics"
+                description="TODO">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="GenerateSosedTopics"
+                class="org.jetbrains.topvisplugin.actions.GenerateSosedAction"
+                text="Generate Sosed Topics"
+                description="TODO">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
