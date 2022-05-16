@@ -18,8 +18,12 @@ git submodule init
 git submodule update
 case "$1" in
   sosed)
-    ./scripts/run_sosed.sh "../../repos.txt"
+    ./scripts/run_sosed.sh "../../repos.txt" "../../topics-caches"
     cp sosed/out/topics.json ../../topics.json
+    mkdir -p ../../topics-caches/sosed/data
+    cp sosed/data/clusters.npy ../../topics-caches/sosed/data/clusters.npy
+    cp sosed/data/tokens.txt ../../topics-caches/sosed/data/tokens.txt
+    pwd
   ;;
   tfidf)
     ./scripts/run_tfidf.sh "../../repos.txt"
